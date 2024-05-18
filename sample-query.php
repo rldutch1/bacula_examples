@@ -2,7 +2,7 @@
 
 #Modified #1.a - Lets me see everything backed up in a particular job id. RH
 $sql = "SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client,\n"
-    . "  convert(Path.Path using utf8mb4),convert(File.FileName using utf8mb4),StartTime,Level,JobFiles,JobBytes\n"
+    . "  convert(Path.Path using utf8mb4) as Path,convert(File.FileName using utf8mb4) as Filename,StartTime,Level,JobFiles,JobBytes\n"
     . " FROM Client,Job,File,Path WHERE Client.ClientId=Job.ClientId\n"
     . " AND JobStatus IN (\'T\',\'W\') AND Job.JobId=File.JobId\n"
     . " AND Path.PathId=File.PathId\n"
@@ -14,7 +14,7 @@ $sql = "SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) a
 
 #Modified #1.b - Lets me search for a file in a particular job id. RH
 $sql = "SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client,\n"
-    . "  convert(Path.Path using utf8mb4),convert(File.FileName using utf8mb4),StartTime,Level,JobFiles,JobBytes\n"
+    . "  convert(Path.Path using utf8mb4) as Path,convert(File.FileName using utf8mb4) as Filename,StartTime,Level,JobFiles,JobBytes\n"
     . " FROM Client,Job,File,Path WHERE Client.ClientId=Job.ClientId\n"
     . " AND JobStatus IN (\'T\',\'W\') AND Job.JobId=File.JobId\n"
     . " AND Path.PathId=File.PathId\n"
@@ -26,7 +26,7 @@ $sql = "SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) a
 
 #Modified #1.c - Lets me search for a particular file in any job id. RH
 $sql = "SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client,\n"
-    . "  convert(Path.Path using utf8mb4),convert(File.FileName using utf8mb4),StartTime,Level,JobFiles,JobBytes\n"
+    . "  convert(Path.Path using utf8mb4) as Path,convert(File.FileName using utf8mb4) as Filename,StartTime,Level,JobFiles,JobBytes\n"
     . " FROM Client,Job,File,Path WHERE Client.ClientId=Job.ClientId\n"
     . " AND JobStatus IN (\'T\',\'W\') AND Job.JobId=File.JobId\n"
     . " AND Path.PathId=File.PathId\n"

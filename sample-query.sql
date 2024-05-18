@@ -26,7 +26,7 @@ SELECT DISTINCT Job.JobId as JobId, Client.Name as Client,
 
 #Modified #1.a - Lets me see everything backed up in a particular job id. RH
 SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client,
-  convert(Path.Path using utf8mb4),convert(File.FileName using utf8mb4),StartTime,Level,JobFiles,JobBytes
+  convert(Path.Path using utf8mb4) as Path,convert(File.FileName using utf8mb4) as Filename,StartTime,Level,JobFiles,JobBytes
  FROM Client,Job,File,Path WHERE Client.ClientId=Job.ClientId
  AND JobStatus IN ('T','W') AND Job.JobId=File.JobId
  AND Path.PathId=File.PathId
@@ -37,7 +37,7 @@ SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client
 
 #Modified #1.b - Lets me search for a file in a particular job id. RH
 SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client,
-  convert(Path.Path using utf8mb4),convert(File.FileName using utf8mb4),StartTime,Level,JobFiles,JobBytes
+  convert(Path.Path using utf8mb4) as Path,convert(File.FileName using utf8mb4) as Filename,StartTime,Level,JobFiles,JobBytes
  FROM Client,Job,File,Path WHERE Client.ClientId=Job.ClientId
  AND JobStatus IN ('T','W') AND Job.JobId=File.JobId
  AND Path.PathId=File.PathId
@@ -48,7 +48,7 @@ SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client
 
 #Modified #1.c - Lets me search for a particular file in any job id. RH
 SELECT DISTINCT Job.JobId as JobId, convert(Client.Name using utf8mb4) as Client,
-  convert(Path.Path using utf8mb4),convert(File.FileName using utf8mb4),StartTime,Level,JobFiles,JobBytes
+  convert(Path.Path using utf8mb4) as Path,convert(File.FileName using utf8mb4) as Filename,StartTime,Level,JobFiles,JobBytes
  FROM Client,Job,File,Path WHERE Client.ClientId=Job.ClientId
  AND JobStatus IN ('T','W') AND Job.JobId=File.JobId
  AND Path.PathId=File.PathId
